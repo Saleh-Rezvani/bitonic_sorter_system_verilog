@@ -1,11 +1,14 @@
-# bitonic_sorter
-Bitonic sorter (Batcher's sorting network) written in Verilog, parameterizable and fully pipelined*.
-Two interfaces available: basic interface and AXI-Stream.
+# bitonic_sorter_system_verilog
+A parameterizable and fully pipelined* Bitonic Sorter (Batcher's sorting network) implemented in SystemVerilog (IEEE 1800).
+Refactored from Dmitry Matyunin's original Verilog-2001 design.
+
+Two interfaces are available: a basic parallel interface and an AXI4-Stream interface.
+
 
 #### * Fully pipelined if PIPE_REG=1
 
-'bitonic_sort.v' is a top file with basic interface;
-'axis_bitonic_sort.v' - is a top file with AXI-Stream interface.
+- `bitonic_sort.v` is a top file with basic interface;
+- `axis_bitonic_sort.v` - is a top file with AXI-Stream interface.
 
 ## Specifications (for basic interface):
 * Depth (latency): log2(CHAN_NUM)\*(log2(CHAN_NUM)+1)/2
@@ -52,3 +55,7 @@ If PIPE_REG=1, than all clocking registers are enabled in pipeline; PIPE_LINE=2 
 
 ## Release
 Bitonic Sort IP Core for Xilinx 7-Series FPGAs (Vivado version >= 2018.3)
+
+## Attribution & License
+- Refactored from the original Verilog IP core by Dmitry Matyunin ([mcjtag/bitonic_sorter](https://github.com/mcjtag/bitonic_sorter)).
+- Licensed under the [MIT License](LICENSE).
